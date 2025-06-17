@@ -1,0 +1,112 @@
+{
+  "info": {
+    "_postman_id": "8ad3fa5e-7f38-4e3a-b998-19efb2a61f29",
+    "name": "Product API Routes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Products (with filters)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products?search=headphone&category=electronics",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products"],
+          "query": [
+            { "key": "search", "value": "headphone" },
+            { "key": "category", "value": "electronics" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Product by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products/{{productId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products", "{{productId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add New Product (with image upload)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            { "key": "name", "value": "Wireless Headphone", "type": "text" },
+            { "key": "description", "value": "High quality noise-canceling headphone", "type": "text" },
+            { "key": "price", "value": "1999", "type": "text" },
+            { "key": "category", "value": "electronics", "type": "text" },
+            { "key": "stockCount", "value": "30", "type": "text" },
+            {
+              "key": "image",
+              "type": "file",
+              "src": "C:\\Users\\vaghe\\Desktop\\WingsTech\\e_commerce\\src\\assets\\headphone.jpg"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/products/addproduct",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products", "addproduct"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Product",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"price\": 1499,\n  \"stockCount\": 25\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/products/{{productId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products", "{{productId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Product",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/products/{{productId}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "products", "{{productId}}"]
+        }
+      },
+      "response": []
+    }
+  ]
+}
